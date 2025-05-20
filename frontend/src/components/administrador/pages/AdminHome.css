@@ -1,0 +1,233 @@
+.report-generator-container {
+  max-width: 900px; /* Ancho adecuado para formularios y visualización de datos */
+  margin: 40px auto;
+  padding: 35px 45px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e9ecef;
+}
+
+.page-header {
+  text-align: left; 
+  margin-bottom: 35px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e5eb;
+}
+.page-header h1 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.page-header p {
+  font-size: 16px;
+  color: #555e68; 
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* === FORMULARIO DE CRITERIOS === */
+.report-criteria-form .criteria-section {
+  margin-bottom: 30px;
+  padding: 25px;
+  background-color: #fcfdff; /* Fondo muy sutil para agrupar secciones */
+  border: 1px solid #e9edf2;
+  border-radius: 8px;
+}
+.report-criteria-form .criteria-section h2 {
+  font-size: 20px;
+  color: #3e444a; /* Color de título de sección */
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #d1d8e0; /* Separador de título más suave */
+  font-weight: 500;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap; /* Para que se ajusten en móviles */
+  gap: 25px; /* Espacio entre grupos de formulario en la misma fila */
+  margin-bottom: 15px;
+}
+.form-row:last-child {
+  margin-bottom: 0;
+}
+
+.form-group {
+  flex: 1 1 300px; /* Crece y base de 300px, permite 2 por fila en pantallas anchas */
+  display: flex;
+  flex-direction: column; /* Etiquetas arriba de los inputs */
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5568; /* Color de etiqueta */
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-group input[type="date"],
+.form-group select {
+  width: 100%;
+  padding: 12px 15px; /* Padding cómodo */
+  border: 1px solid #ced4da; /* Borde estándar */
+  border-radius: 6px; /* Mismo radio que botones */
+  box-sizing: border-box;
+  font-size: 15px;
+  font-family: inherit; /* Heredar fuente principal */
+  background-color: #fff; /* Fondo blanco para inputs */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  height: 48px; /* Altura consistente para inputs y selects */
+}
+.form-group input[type="date"]:focus,
+.form-group select:focus {
+  border-color: #f4d71a; /* Color principal al enfocar */
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(244, 215, 26, 0.25); /* Sombra de foco */
+}
+.form-group select { /* Para la flecha del select si es necesario */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5z%22%20fill%3D%22%23888%22/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 14px;
+  padding-right: 40px; /* Espacio para la flecha */
+}
+
+
+.form-actions {
+  margin-top: 30px;
+  text-align: center; /* Centrar el botón de generar */
+}
+
+.btn-generate-report {
+  padding: 14px 35px; /* Botón de generar más grande */
+  font-size: 16px;
+  /* Si incluyes íconos (requiere una librería de íconos o SVGs) */
+  /* display: inline-flex;
+  align-items: center;
+  gap: 8px; */
+}
+/* Placeholder para estilo de ícono (si los usas)
+.icon-chart, .icon-download {
+  font-size: 1.2em;
+} */
+
+/* === ÁREA DE VISUALIZACIÓN DEL INFORME === */
+.report-display-area {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: #f9fafb; /* Fondo ligeramente distinto para el área del informe */
+  border: 1px solid #e0e5eb;
+  border-radius: 8px;
+}
+
+.report-header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #d1d8e0;
+}
+.report-header h2 {
+  font-size: 22px;
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.report-header p {
+  font-size: 14px;
+  color: #555e68;
+  margin-bottom: 4px;
+}
+
+.report-table tfoot td { /* Para el total en el pie de la tabla de ejemplo */
+  background-color: #f1f3f5;
+  font-weight: bold;
+}
+
+.report-actions {
+  margin-top: 30px;
+  text-align: right; /* Botón de descarga a la derecha */
+}
+.btn-secondary { /* Estilo para botón secundario como "Descargar" */
+  background-color: #6c757d; /* Gris */
+  color: white;
+  border-color: #6c757d;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* === AJUSTES RESPONSIVOS === */
+@media (max-width: 768px) {
+  .report-generator-container {
+      padding: 25px 20px;
+      margin: 25px 15px;
+  }
+  .page-header {
+      text-align: center; /* Centrar cabecera en móvil */
+  }
+  .page-header h1 {
+      font-size: 24px;
+  }
+  .report-criteria-form .criteria-section {
+      padding: 20px;
+  }
+  .report-criteria-form .criteria-section h2 {
+      font-size: 18px;
+  }
+  .form-row {
+      flex-direction: column; /* Apilar grupos de formulario en móvil */
+      gap: 0; /* Quitar gap si se apilan, manejar con margin-bottom de .form-group */
+  }
+  .form-group {
+      flex-basis: auto; /* Permitir que ocupen todo el ancho */
+      margin-bottom: 20px; /* Espacio entre inputs apilados */
+  }
+  .form-group:last-child {
+      margin-bottom: 0;
+  }
+  .btn-generate-report {
+      width: 100%; /* Botón de generar ocupa todo el ancho */
+  }
+  .report-display-area {
+      padding: 20px;
+  }
+  .report-header h2 {
+      font-size: 20px;
+  }
+  .report-actions {
+      text-align: center; /* Botón de descarga centrado en móvil */
+  }
+  .report-actions .btn {
+      width: 100%; /* Botón de descarga ocupa todo el ancho */
+  }
+}
+
+@media (max-width: 480px) {
+  .report-generator-container {
+      margin: 20px 10px;
+      padding: 20px 15px;
+  }
+  .page-header h1 {
+      font-size: 22px;
+  }
+  .page-header p {
+      font-size: 15px;
+  }
+  .form-group input[type="date"],
+  .form-group select {
+      padding: 10px 12px; /* Padding más ajustado para inputs */
+      font-size: 14px;
+      height: 44px;
+  }
+  .btn-generate-report {
+      padding: 12px 25px;
+      font-size: 15px;
+  }
+}

@@ -1,0 +1,99 @@
+.first-section {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url("/banner.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: darken;
+  color: white;
+}
+
+.tools-card {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/tools.png");
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.materials-card {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/material.png");
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.security-card{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/security.png");
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.marketing {
+  text-align: center;
+}
+
+.brand-logo {
+  padding-top: 2rem;
+  width: 90%;
+  margin-bottom: 1rem;
+  max-height: 8rem;
+}
+
+.brand-logo.stanley {
+  max-width: 10rem;
+}
+
+@media screen and (min-width: 768px){
+  .tools-image {
+    width: 20rem;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px){
+  .tools-image {
+    width: 30rem;
+  }
+  
+}
+
+.categories-menu .tools-card {
+  z-index: 1;
+  background-image: none;
+}
+
+.categories-menu img {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.title-container {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.categories-menu a {
+  text-decoration: none;
+}
+
+.categories-menu .landing-card-title:hover {
+  color: #f4d71a !important;
+}
+
+.brand-list .brand-logo {
+  margin-top: 2rem;
+  padding-top: 0;
+  max-height: none;
+  width: 10rem;
+  height: 10rem;
+}
+
+.brand-list .brand-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

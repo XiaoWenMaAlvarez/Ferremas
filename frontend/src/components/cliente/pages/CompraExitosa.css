@@ -1,0 +1,201 @@
+/* Contenedor principal de la página de confirmación */
+.contenedor-principal-confirmacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px); /* Ajustar según altura de header y footer */
+    padding: 40px 15px;
+    background-color: #f4f4f4; /* Fondo suave como en Mercado Libre */
+}
+
+.panel-confirmacion {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 650px;
+    width: 100%;
+}
+
+.icono-confirmacion {
+    font-size: 4.5em; /* Icono grande */
+    color: #28a745; /* Verde éxito (similar a Mercado Libre) */
+    margin-bottom: 20px;
+    line-height: 1; /* Para que no añada espacio extra vertical */
+}
+
+.panel-confirmacion h1 {
+    font-size: 2em; /* Título prominente */
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600; /* Un poco más bold */
+}
+
+.mensaje-agradecimiento {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.detalles-pedido-confirmacion {
+    margin-bottom: 25px;
+    text-align: left; /* Detalles alineados a la izquierda dentro del panel centrado */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.detalles-pedido-confirmacion p {
+    font-size: 1em;
+    color: #444;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+.detalles-pedido-confirmacion p:last-child {
+    margin-bottom: 0;
+}
+.detalles-pedido-confirmacion p strong {
+    color: #333;
+}
+
+.separador-confirmacion {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 30px auto; /* Centrado */
+    width: 80%;
+}
+
+.info-proximos-pasos {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.info-proximos-pasos h2 {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; /* O a la izquierda si se prefiere */
+}
+
+.detalle-proximo-paso {
+    display: flex;
+    align-items: flex-start; /* Alinea icono y texto arriba */
+    gap: 15px;
+    padding: 15px;
+    background-color: #e9f5ff; /* Fondo azul claro para información */
+    border-left: 4px solid #f4c71a;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 15px;
+}
+.detalle-proximo-paso i {
+    font-size: 1.8em;
+    color: #f4c71a;
+    margin-top: 3px; /* Pequeño ajuste vertical */
+}
+.detalle-proximo-paso div p {
+    font-size: 0.95em;
+    color: #33475b; /* Azul oscuro para texto */
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+.detalle-proximo-paso div p:last-child { margin-bottom: 0; }
+.detalle-proximo-paso div p strong { color: #f4d71a; } /* Azul más oscuro para destacar */
+
+
+.acciones-confirmacion {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column; /* Apila botones en móvil por defecto */
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-descargar-boleta { /* Hereda .btn-primario */
+    padding: 12px 25px;
+    font-size: 1.1em;
+    width: 100%; /* Ocupa todo el ancho disponible en el flex container */
+    max-width: 320px; /* Ancho máximo para el botón principal */
+    background-color: #f4c71a; /* Azul Mercado Libre */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex; /* Para alinear icono y texto */
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+.btn-descargar-boleta:hover {
+    background-color: #f4d71a;
+}
+.btn-descargar-boleta i {
+    margin-right: 10px;
+}
+
+.btn-accion-postcompra { /* Hereda .btn-secundario o .btn-terciario */
+    padding: 10px 20px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 320px;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-secundario.btn-accion-postcompra { /* Para "Seguir Comprando" */
+    background-color: transparent;
+    color: #f4c71a;
+    border: 1px solid #f4c71a;
+}
+.btn-secundario.btn-accion-postcompra:hover {
+    background-color: #f4d71a;
+    color: white; 
+}
+
+.btn-terciario.btn-accion-postcompra { /* Para "Ver Mis Pedidos" */
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+.btn-terciario.btn-accion-postcompra:hover {
+    background-color: #e0e0e0;
+}
+.btn-accion-postcompra i {
+    margin-right: 8px;
+}
+
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .panel-confirmacion {
+        padding: 25px 20px;
+    }
+    .panel-confirmacion h1 {
+        font-size: 1.7em;
+    }
+    .icono-confirmacion {
+        font-size: 3.8em;
+    }
+    .mensaje-agradecimiento {
+        font-size: 1em;
+    }
+    .detalles-pedido-confirmacion {
+        padding: 12px;
+    }
+    .info-proximos-pasos h2 {
+        font-size: 1.3em;
+    }
+    .detalle-proximo-paso {
+        padding: 12px;
+        gap: 12px;
+    }
+    .detalle-proximo-paso i {
+        font-size: 1.6em;
+    }
+}
+

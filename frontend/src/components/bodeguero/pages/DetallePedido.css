@@ -1,0 +1,391 @@
+/* === MEJORAS GLOBALES Y BASE === */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente más moderna y limpia */
+    background-color: #f4f6f8; /* Un gris muy claro para el fondo general, da un toque suave */
+    color: #333; /* Color de texto principal para buena legibilidad */
+    line-height: 1.6;
+    font-size: 16px; /* Base de tamaño de fuente */
+}
+
+/* Contenedor principal de la página de detalle de venta */
+.sale-detail-container {
+    max-width: 950px; /* Ligeramente más ancho para mejor espaciado */
+    margin: 30px auto; /* Margen vertical y centrado horizontal */
+    padding: 30px 40px; /* Padding interno generoso */
+    background-color: #ffffff; /* Fondo blanco para el contenido principal */
+    border-radius: 12px; /* Bordes más redondeados para un look moderno */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra más suave y difusa */
+}
+
+/* Títulos de Sección */
+.sale-info-section h2,
+.products-section h2,
+.summary-section h2,
+.actions-section h2 {
+    font-size: 22px; /* Ligeramente más grande para jerarquía */
+    color: #2c3e50; /* Un azul/gris oscuro para los títulos */
+    margin-top: 30px; /* Espacio antes de cada nueva sección */
+    margin-bottom: 20px; /* Espacio después del título */
+    padding-bottom: 12px; /* Espacio debajo del texto del título */
+    border-bottom: 2px solid #f4d71a; /* Borde inferior con el color principal */
+    font-weight: 600; /* Un poco más de peso */
+}
+.sale-info-section:first-of-type h2,
+.products-section:first-of-type h2,
+.summary-section:first-of-type h2,
+.actions-section:first-of-type h2 {
+    margin-top: 0; /* El primer título de sección no necesita margen superior extra */
+}
+
+
+/* === HEADER DE DETALLE DE VENTA === */
+.sale-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e9ecef; /* Borde más sutil */
+}
+
+.sale-detail-header h1 {
+    font-size: 28px; /* Más prominente */
+    color: #1e272e; /* Negro más suave */
+    margin: 0;
+    font-weight: 700; /* Más peso */
+}
+
+.sale-detail-header .status-badge {
+    font-size: 14px;
+    padding: 8px 18px; /* Un poco más de padding horizontal */
+    font-weight: 500; /* Peso medio */
+}
+
+/* === SECCIÓN DE INFORMACIÓN GENERAL === */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Mayor espacio entre items */
+}
+
+.info-item {
+    background-color: #fdfdfe; /* Fondo casi blanco, muy sutil */
+    padding: 18px 20px; /* Mayor padding */
+    border-radius: 8px; /* Bordes más redondeados */
+    border: 1px solid #e9ecef; /* Borde muy sutil */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+
+.info-label {
+    display: block;
+    font-weight: 500; /* Peso medio para las etiquetas */
+    color: #555e68; /* Gris azulado para etiquetas */
+    font-size: 14px;
+    margin-bottom: 6px; /* Mayor espacio */
+}
+
+.info-value {
+    font-size: 16px; /* Tamaño de fuente base para valores */
+    color: #2c3e50; /* Color oscuro para los valores */
+    font-weight: 500;
+}
+
+/* === TABLA DE PRODUCTOS === */
+/* Asumiendo que .data-table y .table-responsive-wrapper ya están definidos y son adecuados.
+   Añadimos mejoras específicas si es necesario para esta tabla. */
+.products-in-sale-table { /* Si quieres especificidad para esta tabla */
+    margin-top: 10px; /* Espacio sobre la tabla */
+}
+
+.products-in-sale-table thead th {
+    background-color: #f8f9fa; /* Fondo de cabecera más claro */
+    color: #495057; /* Color de texto de cabecera */
+    font-size: 13px; /* Un poco más pequeño para cabeceras de tabla */
+    font-weight: 600; /* Peso de fuente para cabeceras */
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* Espaciado de letras sutil */
+    border-bottom: 2px solid #dee2e6; /* Borde inferior más grueso para cabecera */
+}
+
+.products-in-sale-table tbody td {
+    padding: 15px; /* Mayor padding en celdas */
+    font-size: 15px; /* Tamaño de texto en celdas */
+    color: #343a40; /* Color de texto en celdas */
+    vertical-align: middle; /* Alineación vertical */
+}
+
+.products-in-sale-table tbody tr:nth-child(even) {
+    background-color: #fbfcfd; /* Zebra striping muy sutil */
+}
+.products-in-sale-table tbody tr:hover {
+    background-color: #f1f3f5; /* Hover más notable */
+}
+
+
+/* === SECCIÓN DE RESUMEN === */
+.summary-grid {
+    max-width: 500px;
+    margin-left: auto;
+    background-color: #f8f9fa; /* Fondo claro para el resumen */
+    padding: 25px 30px; /* Padding generoso */
+    border-radius: 8px;
+    border: 1px solid #e9ecef; /* Borde sutil */
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0; /* Mayor padding vertical */
+    font-size: 16px; /* Tamaño de fuente consistente */
+}
+
+.summary-label {
+    color: #555e68; /* Gris azulado */
+}
+
+.summary-value {
+    font-weight: 600; /* Valores en negrita */
+    color: #2c3e50; /* Color oscuro para valores */
+}
+.summary-value.discount-value {
+    color: #e74c3c; /* Rojo para descuento */
+}
+
+.summary-divider {
+    border: none;
+    border-top: 1px solid #dee2e6; /* Divisor más sutil */
+    margin: 15px 0; /* Mayor margen */
+}
+
+.summary-item.total-general .summary-label {
+    font-size: 20px; /* Más grande */
+    font-weight: 700; /* Más peso */
+    color: #f4d71a; /* Color principal para la etiqueta "TOTAL GENERAL" */
+    text-transform: uppercase;
+}
+.summary-item.total-general .summary-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c3e50; /* Color oscuro para el valor total */
+}
+
+
+/* === SECCIÓN DE ACCIONES Y BOTONES === */
+.action-buttons {
+    display: flex;
+    gap: 20px; /* Mayor espacio entre botones */
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Mejoras a los botones .btn (asumiendo que ya tienes una base) */
+.btn { /* Asegúrate que .btn esté definido globalmente */
+    padding: 12px 28px; /* Padding base */
+    font-size: 16px;
+    font-weight: 500; /* Peso medio */
+    border-radius: 6px; /* Bordes ligeramente redondeados */
+    text-decoration: none;
+    cursor: pointer;
+    border: none; /* Quitar borde por defecto */
+    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    letter-spacing: 0.02em; /* Pequeño espaciado de letras */
+    text-transform: uppercase; /* Para botones de acción */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra sutil inicial */
+}
+.btn:hover {
+    transform: translateY(-2px); /* Elevar ligeramente al pasar el mouse */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1); /* Sombra más pronunciada al hover */
+}
+.btn:active {
+    transform: translateY(0px); /* Al hacer click, vuelve a su posición */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra como la inicial */
+}
+/* Estilo de foco para accesibilidad */
+.btn:focus-visible { /* Usar :focus-visible para no mostrar outline en clicks de mouse */
+    outline: 2px solid #f4d71a;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(244, 215, 26, 0.3);
+}
+
+
+.btn-approve, .btn-reject {
+    /* Heredan padding y font-size de .btn */
+    min-width: 200px; /* Ancho mínimo más generoso */
+}
+
+.btn-success { /* Para Aprobar Venta */
+    background-color: #28a745; /* Verde éxito */
+    color: white;
+}
+.btn-success:hover {
+    background-color: #218838; /* Verde más oscuro */
+}
+
+/* Si prefieres el color principal para aprobar */
+/*
+.btn-approve.btn-primary-action {
+    background-color: #f4d71a;
+    color: #333;
+}
+.btn-approve.btn-primary-action:hover {
+    background-color: #e0c417;
+}
+*/
+
+.btn-danger { /* Para Rechazar Venta */
+    background-color: #dc3545; /* Rojo peligro */
+    color: white;
+}
+.btn-danger:hover {
+    background-color: #c82333; /* Rojo más oscuro */
+}
+
+
+/* Motivo del Rechazo Textarea */
+#rejectionReasonContainer { /* Ya se usa .form-group, estos son ajustes finos si es necesario */
+    margin-top: 25px; /* Mayor espacio */
+}
+#rejectionReasonContainer label {
+    font-size: 15px;
+    color: #555e68; /* Mismo color que info-label */
+    margin-bottom: 10px; /* Mayor espacio */
+}
+#rejectionReasonContainer textarea {
+    width: 100%;
+    padding: 12px 15px; /* Padding más cómodo */
+    border: 1px solid #ced4da; /* Borde estándar */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+    min-height: 90px; /* Un poco más alto */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit; /* Heredar la fuente del body */
+}
+#rejectionReasonContainer textarea:focus {
+    border-color: #f4d71a; /* Color principal al enfocar */
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(244, 215, 26, 0.2); /* Sombra de foco con el color principal */
+}
+
+/* === AJUSTES RESPONSIVOS (REVISIÓN) === */
+@media (max-width: 992px) { /* Tablets */
+    .sale-detail-container {
+        padding: 25px 30px;
+    }
+}
+
+@media (max-width: 768px) { /* Móviles grandes y tablets en vertical */
+    .sale-detail-container {
+        padding: 20px 20px; /* Menos padding en móviles */
+        margin: 20px 15px; /* Margen lateral */
+        border-radius: 10px; /* Un poco menos redondeado si se prefiere */
+    }
+    .sale-detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px; /* Espacio entre título y badge */
+    }
+    .sale-detail-header h1 {
+        font-size: 24px; /* Ajuste de tamaño */
+    }
+    .sale-info-section h2,
+    .products-section h2,
+    .summary-section h2,
+    .actions-section h2 {
+        font-size: 20px; /* Títulos de sección más pequeños */
+    }
+    .info-grid {
+        grid-template-columns: 1fr; /* Siempre una columna en móviles */
+    }
+    .summary-grid {
+        max-width: 100%;
+        padding: 20px;
+    }
+    .summary-item.total-general .summary-label,
+    .summary-item.total-general .summary-value {
+        font-size: 18px; /* Total general un poco más pequeño */
+    }
+
+    .action-buttons {
+        flex-direction: column; /* Botones se apilan */
+        gap: 12px;
+    }
+    .action-buttons .btn {
+        width: 100%; /* Botones ocupan todo el ancho */
+        min-width: auto; /* Resetear min-width */
+    }
+}
+
+@media (max-width: 480px) { /* Móviles pequeños */
+    body {
+        font-size: 15px; /* Base de fuente ligeramente más pequeña */
+    }
+    .sale-detail-container {
+        padding: 15px;
+        margin: 15px 10px;
+        border-radius: 8px;
+    }
+    .sale-detail-header h1 {
+        font-size: 22px;
+    }
+    .sale-detail-header .status-badge {
+        font-size: 13px;
+        padding: 7px 15px;
+    }
+    .sale-info-section h2,
+    .products-section h2,
+    .summary-section h2,
+    .actions-section h2 {
+        font-size: 18px;
+    }
+    .btn { /* Botones un poco más pequeños en móviles */
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+     #rejectionReasonContainer textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* === BREADCRUMBS (MEJORA OPCIONAL) === */
+/* Si quieres refinar los breadcrumbs que tenías */
+.breadcrumb-container {
+    background-color: #e9ecef; /* Fondo más integrado con el body */
+    padding: 12px 0; /* Padding vertical */
+    margin-bottom: 30px; /* Espacio antes del contenido principal */
+    border-bottom: 1px solid #dee2e6; /* Borde sutil */
+}
+.breadcrumb {
+    max-width: 950px; /* Mismo ancho que el contenedor principal */
+    margin: 0 auto; /* Centrado */
+    padding: 0 30px; /* Padding lateral igual que el contenedor si no usas porcentaje */
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.breadcrumb-item {
+    font-size: 14px;
+    color: #6c757d; /* Color de texto más suave */
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "/"; /* Separador más común */
+    padding: 0 10px; /* Mayor espaciado */
+    color: #adb5bd; /* Color del separador */
+}
+.breadcrumb-item a {
+    color: #f4d71a; /* Color principal para enlaces */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.breadcrumb-item a:hover {
+    color: #e0c417; /* Oscurecer el color principal al hover */
+    text-decoration: underline;
+}
+.breadcrumb-item.active {
+    color: #495057; /* Color para el item activo (más oscuro) */
+    font-weight: 500;
+}

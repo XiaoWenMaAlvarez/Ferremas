@@ -1,0 +1,76 @@
+import { Link } from 'react-router-dom';
+import axios from 'axios'
+import { USER_API_URL } from "../../../constants/env"
+import { useEffect, useState } from 'react'
+import CuerpoError from '../../comunes/CuerpoError'
+import Loader from '../../comunes/Loader'
+
+const PedidosPendientes = () => {
+    const [data, setData] = useState()
+
+    const [error, setError] = useState()
+
+    useEffect(() => {
+        axios.get(`${USER_API_URL}/venta/por_estado_venta/2`)
+        .then((response) => {
+            setData(response.data)
+        })
+        .catch((error) => {
+            setError(error)
+        })
+    }, [])
+
+    if(!data) {
+        return (
+            <Loader></Loader>
+        )
+    }
+
+    if(error) {
+        return (
+            <CuerpoError>Error al cargar la información</CuerpoError>
+        )
+    }
+
+  return (
+    <div className="admin-list-container">
+        <div className="list-header">
+            <h1>Listado de Pedidos Pendientes</h1>
+            </div>
+        <div className="table-responsive-wrapper">
+            <table className="data-table sales-table">
+                <thead>
+                    <tr>
+                        <th>ID Venta</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                    data.map((venta) => (
+                        <tr key={venta.id_venta}>
+                        <td>{venta.id_venta}</td>
+                        <td>{venta.fecha}</td>
+                        <td className="actions-cell">
+                            <Link to={`/bodeguero/detalle_pedido_pendiente/${venta.id_venta}`} className="btn btn-info">Ver Detalles</Link>
+                        </td>
+                    </tr>
+                    ))
+                    }
+                    {
+                        data.length == 0 ? 
+                        <td colspan="3" class="alert alert-warning empty-alert" role="alert">
+                            No hay datos
+                        </td>
+                        :<></>
+
+                    }
+                    </tbody>
+            </table>
+        </div>
+    </div>
+  )
+}
+
+export default PedidosPendientes

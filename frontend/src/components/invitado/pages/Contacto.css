@@ -1,0 +1,13 @@
+.contact-section img {
+  width: 5rem;
+  height: auto;
+}
+
+.contact-hero-banner {
+  background-color: #f4d71a;
+  padding-top: 0;
+}
+
+.contact-hero-banner img {
+  width: 10rem;
+}

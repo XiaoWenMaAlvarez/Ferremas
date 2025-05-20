@@ -1,0 +1,308 @@
+/* === MEJORAS GLOBALES Y BASE === */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f7f9fc; /* Un gris aún más claro y sutil para el fondo */
+    color: #343a40; /* Color de texto principal ligeramente más suave */
+    line-height: 1.65; /* Un poco más de interlineado para lectura */
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased; /* Mejor renderizado de fuentes en WebKit */
+    -moz-osx-font-smoothing: grayscale;  /* Mejor renderizado de fuentes en Firefox */
+    text-rendering: optimizeLegibility; /* Optimizar para legibilidad */
+}
+
+/* === CONTENEDOR PRINCIPAL DEL LISTADO === */
+.admin-list-container {
+    max-width: 1140px; /* Un poco más de espacio si el contenido lo permite */
+    margin: 40px auto; /* Mayor margen vertical */
+    padding: 35px 45px; /* Padding interno más generoso */
+    background-color: #ffffff;
+    border-radius: 10px; /* Radio de borde sutil y moderno */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07); /* Sombra más suave y elevada */
+    border: 1px solid #e9ecef; /* Borde muy sutil para definir el contenedor */
+}
+
+/* === CABECERA DEL LISTADO === */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e0e5eb; /* Borde de separación más claro */
+}
+
+.list-header h1 {
+    font-size: 28px;
+    color: #2c3e50; /* Un azul oscuro profundo para títulos importantes */
+    margin: 0;
+    font-weight: 600; /* Un peso que denote importancia sin ser excesivo */
+    letter-spacing: -0.01em; /* Ligero ajuste de espaciado para títulos grandes */
+}
+
+/* === BOTONES (REFINAMIENTO ADICIONAL) === */
+.btn {
+    padding: 10px 24px; /* Padding base confortable */
+    font-size: 15px; /* Tamaño de fuente estándar para botones */
+    font-weight: 500; /* Peso medio, claro pero no demasiado pesado */
+    border-radius: 8px; /* Radio de borde consistente */
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent; /* Borde base transparente, útil para algunos estilos */
+    transition: all 0.2s ease-out; /* Transición más rápida y suave para todos los props */
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.08); /* Sombra muy sutil por defecto */
+    display: inline-flex; /* Para alinear iconos si se añaden en el futuro */
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5; /* Asegurar altura de línea consistente */
+}
+.btn:hover {
+    transform: translateY(-1px); /* Elevación muy sutil */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.1); /* Sombra más pronunciada y suave */
+}
+.btn:active {
+    transform: translateY(0px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Sombra mínima al presionar */
+}
+.btn:focus-visible {
+    outline: none; /* Quitar outline por defecto */
+    box-shadow: 0 0 0 3px rgba(244, 215, 26, 0.4), /* Sombra de foco con color principal */
+                0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.08); /* Mantener sombra base */
+}
+
+.btn-primary {
+    background-color: #f4d71a;
+    color: #3a320a; /* Un marrón oscuro para mejor contraste con amarillo brillante */
+    border-color: #f4d71a;
+}
+.btn-primary:hover {
+    background-color: #e9cc18; /* Amarillo ligeramente más oscuro y saturado */
+    border-color: #e9cc18;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    color: white;
+    border-color: #17a2b8;
+    padding: 7px 16px; /* Más pequeños para acciones dentro de tabla */
+    font-size: 13px;
+}
+.btn-info:hover {
+    background-color: #1491a3;
+    border-color: #1491a3;
+}
+
+
+/* === TABLA DE DATOS (REFINAMIENTO) === */
+.table-responsive-wrapper {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: separate; /* Cambiado para permitir border-spacing y radios en celdas */
+    border-spacing: 0; /* Quitar espaciado por defecto si se usa separate */
+    font-size: 15px;
+    color: #3e444a;
+    margin-top: 15px;
+    /* border: 1px solid #e0e5eb; /* Borde general para la tabla */
+    /* border-radius: 8px; /* Radio de borde para la tabla */
+    /* overflow: hidden; /* Para que el border-radius afecte a las celdas internas */
+}
+
+.data-table thead th {
+    padding: 14px 18px; /* Padding optimizado */
+    text-align: left;
+    background-color: #f9fafb; /* Fondo de cabecera muy sutil */
+    color: #4a5568; /* Color de texto de cabecera más suave (gris-azulado) */
+    font-size: 12.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em; /* Espaciado de letras más notorio para cabeceras */
+    border-bottom: 2px solid #e0e5eb; /* Borde inferior de cabecera más definido */
+    /* border-top: 1px solid #e0e5eb; */
+}
+.data-table thead th:first-child { /* Para aplicar radios si la tabla los tuviera */
+    /* border-top-left-radius: 7px; */
+}
+.data-table thead th:last-child {
+    /* border-top-right-radius: 7px; */
+}
+
+
+.data-table tbody td {
+    padding: 16px 18px; /* Mayor padding vertical para comodidad */
+    border-bottom: 1px solid #f0f3f6; /* Borde de fila extremadamente sutil */
+    vertical-align: middle;
+    color: #4a5568; /* Color de texto de celda consistente */
+}
+
+.data-table tbody tr {
+    transition: background-color 0.15s ease-out; /* Transición suave para el hover */
+}
+.data-table tbody tr:nth-child(even) {
+    background-color: transparent; /* Quitar zebra-striping si se busca minimalismo, o hacerlo más sutil */
+    /* background-color: #fcfdfe; */
+}
+.data-table tbody tr:hover {
+    background-color: #f4f8fb; /* Hover muy sutil y elegante */
+}
+.data-table tbody tr:last-child td {
+    border-bottom: none; /* Quitar borde de la última fila */
+}
+.data-table tbody tr:last-child td:first-child { /* Para radios en la esquina de la tabla */
+    /* border-bottom-left-radius: 7px; */
+}
+.data-table tbody tr:last-child td:last-child {
+    /* border-bottom-right-radius: 7px; */
+}
+
+
+.data-table td.actions-cell {
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* === BADGES DE ESTADO (REFINAMIENTO) === */
+.status-badge {
+    padding: 5px 12px; /* Padding ligeramente ajustado */
+    border-radius: 20px; /* Totalmente píldora */
+    font-size: 11.5px; /* Tamaño de fuente preciso */
+    font-weight: 600; /* Un poco más de peso para destacar */
+    color: #fff;
+    text-transform: uppercase; /* Todo en mayúsculas para badges */
+    display: inline-block;
+    min-width: 95px;
+    text-align: center;
+    line-height: 1.5; /* Mejor centrado vertical del texto */
+    letter-spacing: 0.03em;
+    border: 1px solid transparent; /* Para consistencia con botones */
+}
+
+.status-completed { background-color: #28a745; border-color: #28a745; }
+.status-pending { background-color: #ffc107; color: #3a320a; border-color: #ffc107;}
+.status-shipped { background-color: #007bff; border-color: #007bff;}
+.status-cancelled { background-color: #dc3545; border-color: #dc3545;}
+.status-processing { background-color: #6c757d; border-color: #6c757d;}
+
+
+/* === PAGINACIÓN (REFINAMIENTO) === */
+.pagination {
+    margin-top: 35px; /* Mayor espacio sobre la paginación */
+    text-align: center;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 9px 15px; /* Padding ajustado */
+    margin: 0 3px;
+    color: #f4d71a;
+    border: 1px solid #fdeeb3; /* Borde más sutil que el color principal */
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease-out; /* Transición para todos los props */
+    background-color: #fff; /* Fondo blanco por defecto */
+}
+
+.page-link:hover {
+    background-color: #fffaf0; /* Un hover muy sutil con tinte amarillo */
+    color: #e0c417; /* Amarillo más oscuro */
+    border-color: #f4d71a;
+    box-shadow: 0 2px 5px rgba(244, 215, 26, 0.2);
+    transform: translateY(-1px);
+}
+.page-link.active {
+    background-color: #f4d71a;
+    color: #3a320a; /* Mismo color de texto que btn-primary */
+    border-color: #f4d71a;
+    font-weight: 600; /* Ligeramente más peso para el activo */
+    cursor: default;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); /* Sombra interna sutil */
+    transform: none;
+}
+.page-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(244, 215, 26, 0.4);
+    border-color: #f4d71a; /* Asegurar que el borde se vea con el foco */
+}
+
+/* === AJUSTES RESPONSIVOS (REVISIÓN FINAL) === */
+@media (max-width: 992px) { /* Tablets */
+    .admin-list-container {
+        padding: 30px; /* Ajustar padding para tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-list-container {
+        padding: 25px 20px;
+        margin: 25px 15px;
+        border-radius: 8px; /* Radio de borde ligeramente menor en móviles */
+    }
+    .list-header {
+        flex-direction: column;
+        align-items: stretch; /* Que el botón ocupe el ancho */
+        gap: 20px;
+    }
+    .list-header h1 {
+        font-size: 24px;
+        text-align: center; /* Título centrado en móvil */
+    }
+    .list-header .btn-primary { /* Si hay botón de crear */
+        width: 100%; /* Ocupa todo el ancho */
+    }
+
+    .data-table {
+        font-size: 14px;
+    }
+    .data-table thead th {
+        padding: 12px 10px;
+        font-size: 11.5px; /* Cabeceras más pequeñas */
+    }
+    .data-table tbody td {
+        padding: 12px 10px;
+    }
+    .data-table .btn-info {
+        padding: 6px 10px; /* Botones de tabla más pequeños */
+        font-size: 12px;
+    }
+    .status-badge {
+        font-size: 10.5px; /* Badges más pequeños */
+        padding: 4px 10px;
+        min-width: 85px;
+    }
+    .page-link {
+        padding: 8px 12px; /* Paginación un poco más compacta */
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    body { font-size: 15px; }
+    .admin-list-container {
+        margin: 20px 10px;
+        padding: 20px 15px;
+        border-radius: 6px;
+    }
+    .list-header h1 {
+        font-size: 22px;
+    }
+    .data-table td.actions-cell .btn {
+        width: 100%; /* Botones de acción ocupan todo el ancho de su celda */
+        margin-bottom: 6px;
+    }
+    .data-table td.actions-cell .btn:last-child {
+        margin-bottom: 0;
+    }
+    .pagination {
+        margin-top: 30px;
+    }
+    .page-link {
+        padding: 7px 9px;
+        margin: 0 2px;
+    }
+}

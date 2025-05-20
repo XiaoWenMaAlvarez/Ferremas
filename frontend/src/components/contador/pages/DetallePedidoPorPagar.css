@@ -1,0 +1,9 @@
+.summary-section img {
+  max-width: 90vw;
+  display: block;
+  margin-inline: auto;
+}
+
+.summary-section .payment-photo{
+  max-width: 100%;
+}

@@ -1,0 +1,205 @@
+
+.admin-list-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.list-header h1 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+}
+
+/* Botones generales (sin cambios) */
+.btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 5px; /* Añadido para espaciado si se apilan */
+}
+.btn:not(:last-child) {
+  margin-right: 5px; /* Espacio entre botones en la misma línea */
+}
+
+
+.btn-primary { /* Para el botón "Crear Nuevo Usuario" */
+  background-color: #f4d71a; /* Color principal */
+  color: #333;
+}
+
+.btn-primary:hover {
+  background-color: #e0c417;
+}
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+
+/* Estilos de la Tabla de Usuarios (sin cambios) */
+.table-responsive-wrapper {
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: #444;
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  white-space: nowrap; 
+}
+
+.users-table thead tr {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.users-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.users-table tbody tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
+.users-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilos para la celda de acciones si es necesario */
+.users-table td.actions-cell {
+  white-space: nowrap; 
+}
+
+
+/* Botones de acción dentro de la tabla */
+.users-table .btn { /* Estilo base para botones dentro de la tabla */
+  padding: 6px 12px;
+  font-size: 13px;
+  /* margin-right ya está cubierto por .btn:not(:last-child) */
+}
+
+.btn-edit {
+  background-color: #28a745; /* Verde para editar */
+  color: white;
+}
+.btn-edit:hover {
+  background-color: #218838;
+}
+
+.btn-delete { /* Estilo para el nuevo botón de eliminar */
+  background-color: #dc3545; /* Rojo para eliminar */
+  color: white;
+}
+.btn-delete:hover {
+  background-color: #c82333; /* Rojo más oscuro al pasar el mouse */
+}
+
+/* Paginación (sin cambios) */
+.pagination {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.page-link {
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 0 3px;
+  color: #f4d71a;
+  border: 1px solid #f4d71a;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-link:hover,
+.page-link.active {
+  background-color: #f4d71a;
+  color: #333;
+}
+
+.page-link.active {
+  font-weight: bold;
+  cursor: default;
+}
+
+
+/* Diseño Responsivo para la lista/tabla */
+@media (max-width: 768px) {
+  .admin-list-container {
+      padding: 15px;
+      margin: 20px auto;
+  }
+
+  .list-header {
+      flex-direction: column;
+      align-items: center;
+  }
+  .list-header h1 {
+      margin-bottom: 15px;
+      font-size: 22px;
+  }
+  .list-header .btn-primary {
+      width: 100%;
+      margin-right: 0; /* Asegurar que no haya margen extra */
+  }
+
+  .users-table {
+      font-size: 14px;
+  }
+  .users-table th,
+  .users-table td {
+      padding: 10px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-list-container {
+      margin: 10px;
+      box-shadow: none;
+      border: 1px solid #eee;
+  }
+  .list-header h1 {
+      font-size: 20px;
+  }
+  .page-link {
+      padding: 6px 10px;
+      font-size: 13px;
+  }
+}
+
+.empty-alert {
+  text-align: center !important;
+  font-weight: bold;
+}

@@ -1,0 +1,36 @@
+
+#id {
+  margin-top: 0;
+}
+
+.productos {
+    width: 90vw;
+    margin-inline: auto;
+    max-width: 1200px;
+    padding: 0 15px;
+    min-height: 100vh;
+    padding-top: 2rem;
+}
+
+.productos h1 {
+  text-align: center; 
+  margin-bottom: 2rem; 
+}
+
+.productos .card-img-top {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#logo {
+    height: 40px; /* Ligeramente más pequeño si se desea */
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px; /* Reducimos un poco el espacio si las tarjetas son más pequeñas */
+}
+
+.grid-productos img:hover {
+  filter: grayscale(100%);
+}

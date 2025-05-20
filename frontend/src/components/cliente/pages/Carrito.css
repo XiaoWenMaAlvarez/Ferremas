@@ -1,0 +1,384 @@
+/* Contenedor principal de la página del carrito */
+.contenedor-carrito {
+    width: 90%;
+    max-width: 1300px; /* Un poco más ancho para el layout de dos columnas */
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.contenedor-carrito h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #333;
+}
+
+.layout-carrito {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 para productos, 1/3 para resumen */
+    gap: 30px;
+}
+
+/* Estilos para la sección de productos en el carrito */
+.productos-en-carrito {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.productos-en-carrito h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.item-carrito {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto auto; /* Imagen, Detalles, Cantidad, Precio, Acciones */
+    gap: 15px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.item-carrito:last-child {
+    border-bottom: none;
+}
+
+.item-imagen img {
+    width: 80px; /* Tamaño fijo para la imagen miniatura */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.item-detalles .item-nombre {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.item-detalles .item-info-adicional,
+.item-detalles .item-vendedor {
+    font-size: 0.85em;
+    color: #666;
+    margin: 3px 0;
+}
+
+.item-detalles .item-stock-aviso {
+    font-size: 0.8em;
+    color: #e74c3c; /* Rojo para avisos de stock */
+    font-weight: bold;
+}
+
+.item-cantidad {
+    display: flex;
+    align-items: center;
+}
+
+.item-cantidad input[type="number"] {
+    width: 50px;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 5px;
+    appearance: textfield; /* Para Firefox */
+}
+/* Ocultar flechas en input number para Chrome, Safari, Edge, Opera */
+.item-cantidad input[type="number"]::-webkit-outer-spin-button,
+.item-cantidad input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.btn-cantidad {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-cantidad:hover {
+    background-color: #e0e0e0;
+}
+
+.item-precio .precio-unitario {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+.item-precio .precio-subtotal-item {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.item-acciones .btn-eliminar {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.item-acciones .btn-eliminar:hover {
+    color: #e74c3c; /* Rojo al pasar el mouse */
+}
+
+.opciones-carrito-inferior {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Estilos para la sección de resumen de compra */
+.resumen-compra {
+    background-color: #f9f9f9; /* Un fondo ligeramente diferente */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: sticky; /* Para que el resumen se quede fijo al hacer scroll (en layouts de escritorio) */
+    top: 20px; /* Espacio desde la parte superior */
+    height: fit-content; /* Para que no ocupe más de lo necesario */
+}
+
+.resumen-compra h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.resumen-linea {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 1em;
+}
+
+.resumen-linea span:first-child {
+    color: #555;
+}
+.resumen-linea span:last-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.resumen-linea.total-compra span {
+    font-size: 1.3em;
+    color: #f4d71a; /* Color de acento para el total */
+}
+
+.cupon-descuento {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.cupon-descuento label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #555;
+}
+.input-cupon {
+    display: flex;
+}
+.input-cupon input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 0.95em;
+}
+.input-cupon button {
+    padding: 10px 15px;
+    background-color: #6c757d; /* Color secundario para aplicar cupón */
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 0.95em;
+}
+.input-cupon button:hover {
+    background-color: #5a6268;
+}
+
+.btn-primario.btn-continuar-compra {
+    background-color: #f4d71a; /* Azul similar a Mercado Libre */
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-primario.btn-continuar-compra:hover {
+    background-color: #ffea00;
+}
+
+.btn-secundario {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.95em;
+}
+.btn-secundario:hover {
+    background-color: #e0e0e0;
+}
+
+
+.medios-de-pago p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 8px;
+    text-align: center;
+}
+.medios-de-pago img {
+    display: block;
+    margin: 0 auto 15px auto;
+    max-width: 200px; /* Ajusta según tu imagen de medios de pago */
+}
+
+.compra-segura {
+    text-align: center;
+    font-size: 0.9em;
+    color: #28a745; /* Verde para mensajes de seguridad */
+}
+.compra-segura i {
+    margin-right: 5px;
+}
+
+/* Para accesibilidad: ocultar visualmente pero mantener para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+
+/* Responsive para el layout del carrito */
+@media (max-width: 992px) { /* Punto de quiebre para tablets o pantallas más pequeñas */
+    .layout-carrito {
+        grid-template-columns: 1fr; /* Apila las columnas */
+    }
+    .resumen-compra {
+        position: static; /* Quita el sticky en móviles */
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) { /* Punto de quiebre para móviles */
+    .item-carrito {
+        grid-template-columns: auto 1fr; /* Imagen | Resto */
+        grid-template-rows: auto auto auto; /* Nombre/Detalles, Cantidad/Precio, Acciones */
+        row-gap: 10px;
+    }
+    .item-imagen {
+        grid-row: 1 / span 2; /* Imagen ocupa dos filas */
+        margin-right: 10px;
+    }
+    .item-detalles {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+    .item-cantidad {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        justify-self: start; /* Alinea a la izquierda */
+    }
+    .item-precio {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        text-align: left; /* Precio alineado a la izquierda */
+        margin-top: 5px;
+    }
+    .item-precio .precio-unitario { display: inline-block; margin-right: 10px;}
+    .item-precio .precio-subtotal-item { display: inline-block; }
+
+    .item-acciones {
+        grid-column: 1 / -1; /* Ocupa todo el ancho debajo */
+        grid-row: 4 / 5;
+        text-align: right; /* Botón de eliminar a la derecha */
+        padding-top: 10px;
+        border-top: 1px solid #f0f0f0; /* Separador antes de acciones en móvil */
+    }
+
+    .opciones-carrito-inferior {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .opciones-carrito-inferior .btn-secundario {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+     .contenedor-carrito h1 {
+        font-size: 1.6em;
+     }
+     .productos-en-carrito h2, .resumen-compra h2 {
+        font-size: 1.3em;
+     }
+     .item-detalles .item-nombre {
+        font-size: 1em;
+     }
+}
+
+.no-product-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.no-product-message {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) { 
+  .no-product-message {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) { 
+
+  .no-product-container {
+    height: 70%;
+    align-items: center;
+  }
+
+  .no-product-message {
+    font-size: 2rem;
+  }
+}

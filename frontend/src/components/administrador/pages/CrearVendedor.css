@@ -1,0 +1,133 @@
+/* Estilos generales (asegúrate de que body, etc., ya estén definidos en style.css) */
+
+/* Contenedor del Formulario de Administración */
+.admin-form-container {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px; /* Un ancho adecuado para formularios de admin */
+  margin: 40px auto; /* Centrado con margen superior e inferior */
+  box-sizing: border-box;
+}
+
+.admin-form h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Si los estilos de .form-group, label, input, select ya están definidos
+ y son adecuados, no necesitas redefinirlos. Si necesitas ajustes: */
+
+.admin-form .form-group {
+  margin-bottom: 20px;
+}
+
+.admin-form .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #454545; /* Un gris un poco más oscuro para labels de admin */
+  font-size: 15px;
+}
+
+.admin-form .form-group input[type="text"],
+.admin-form .form-group input[type="email"],
+.admin-form .form-group input[type="password"],
+.admin-form .form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.admin-form .form-group input:focus,
+.admin-form .form-group select:focus {
+  border-color: #f4d71a; /* Color principal al enfocar */
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(244, 215, 26, 0.25);
+}
+
+/* Estilos específicos para el select si no lo has hecho globalmente antes */
+.admin-form .form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5z%22%20fill%3D%22%23555%22/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px; /* Espacio para la flecha */
+}
+
+
+/* Botón de Crear Usuario */
+.btn-create-user {
+  background-color: #f4d71a; /* Color principal */
+  color: #333; /* Texto oscuro para contraste */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  margin-top: 10px; /* Espacio sobre el botón */
+}
+
+.btn-create-user:hover {
+  background-color: #e0c417; /* Color principal más oscuro */
+}
+
+.btn-create-user:active {
+  transform: translateY(1px); /* Efecto de click */
+}
+
+/* Enlaces del Formulario (si los usas) */
+.admin-form .form-links {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.admin-form .form-links a {
+  color: #cab216;
+  text-decoration: none;
+}
+
+.admin-form .form-links a:hover {
+  text-decoration: underline;
+}
+
+
+/* Diseño Responsivo para el formulario de admin */
+@media (max-width: 768px) {
+  .admin-form-container {
+      margin: 20px auto;
+      padding: 25px;
+  }
+  .admin-form h1 {
+      font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-form-container {
+      padding: 20px;
+  }
+   .admin-form .form-group input,
+   .admin-form .form-group select,
+   .btn-create-user {
+      font-size: 15px;
+   }
+}

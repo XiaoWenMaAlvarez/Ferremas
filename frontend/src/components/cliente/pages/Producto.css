@@ -1,0 +1,271 @@
+/* Contenedor Principal del Detalle del Producto */
+.product-detail-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no caben */
+    max-width: 1200px;
+    margin: 3rem auto 30px auto; /* Centrado y con margen inferior */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+/* Sección de Imagen del Producto */
+.product-image-section {
+    flex: 1 1 400px; /* Crece, encoge, base de 400px */
+    padding-right: 30px; /* Espacio entre imagen e info */
+    box-sizing: border-box;
+}
+
+.product-image-section img#mainProductImage {
+    width: 100%;
+    max-width: 500px; /* Máximo tamaño de la imagen */
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    display: block; /* Evita espacio extra debajo de la imagen */
+    margin: 0 auto; /* Centra la imagen si el contenedor es más grande */
+}
+
+/* Miniaturas (opcional) */
+.thumbnail-images {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px; /* Espacio entre miniaturas */
+}
+
+.thumbnail-images img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnail-images img:hover {
+    border-color: #f4d71a;
+}
+
+/* Sección de Información del Producto */
+.product-info-section {
+    flex: 1 1 500px; /* Crece, encoge, base de 500px */
+    padding-left: 20px; /* Espacio para que no se pegue a la imagen */
+    box-sizing: border-box;
+}
+
+.product-info-section h1 {
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.product-sku {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 26px;
+    font-weight: bold;
+    color: #f4d71a; /* Color principal para el precio */
+    margin-bottom: 20px;
+}
+
+.product-price .old-price {
+    font-size: 18px;
+    text-decoration: line-through;
+    color: #999;
+    margin-left: 10px;
+}
+
+.product-short-description {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Opciones del producto (talla, color) */
+.product-options .form-group {
+    margin-bottom: 15px; /* Reutilizando la clase .form-group si existe o definirla */
+}
+
+.product-options .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.product-options .form-group select {
+    width: 100%;
+    max-width: 250px; /* Para que no sea excesivamente ancho */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #fff; /* Asegurar fondo blanco */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5z%22%20fill%3D%22%23555%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+    padding-right: 30px;
+}
+.product-options .form-group select:focus {
+    border-color: #f4d71a;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(244, 215, 26, 0.25);
+}
+
+
+/* Cantidad */
+.product-quantity {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.product-quantity label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.product-quantity input[type="number"] {
+    width: 70px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.product-quantity input[type="number"]:focus {
+    border-color: #f4d71a;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(244, 215, 26, 0.25);
+}
+
+
+/* Botón de Agregar al Carrito */
+.btn-add-to-cart {
+    display: inline-block; /* Para que no ocupe todo el ancho si no es necesario */
+    background-color: #f4d71a;
+    color: #333; /* Texto oscuro para buen contraste */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Hacer que ocupe el ancho de su contenedor en la sección info */
+    max-width: 300px; /* Pero con un máximo */
+}
+
+.btn-add-to-cart:hover {
+    background-color: #e0c417; /* Color principal más oscuro */
+}
+
+.product-meta {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.product-meta a {
+    color: #f4d71a;
+    text-decoration: none;
+}
+
+.product-meta a:hover {
+    text-decoration: underline;
+}
+
+/* Sección de Descripción Larga */
+.product-long-description-section {
+    flex-basis: 100%; /* Ocupa todo el ancho en la siguiente línea */
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.product-long-description-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.product-long-description-section ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+.product-long-description-section ul li {
+    margin-bottom: 8px;
+}
+
+
+/* Diseño Responsivo */
+@media (max-width: 992px) { /* Tablets y layouts más pequeños */
+    .product-image-section {
+        padding-right: 0; /* Quitar padding cuando se apila */
+        margin-bottom: 20px; /* Espacio debajo de la imagen */
+    }
+    .product-info-section {
+        padding-left: 0; /* Quitar padding cuando se apila */
+    }
+    .btn-add-to-cart {
+        width: 100%; /* Botón ocupa todo el ancho disponible en info-section */
+    }
+}
+
+@media (max-width: 768px) { /* Móviles grandes y tablets en vertical */
+    .product-detail-container {
+        padding: 15px;
+    }
+    .product-info-section h1 {
+        font-size: 24px;
+    }
+    .product-price {
+        font-size: 22px;
+    }
+    .breadcrumb-container {
+        padding: 10px 3%;
+    }
+}
+
+@media (max-width: 480px) { /* Móviles pequeños */
+    .product-info-section h1 {
+        font-size: 20px;
+    }
+     .product-options .form-group select,
+     .product-quantity input[type="number"],
+     .btn-add-to-cart {
+        font-size: 14px;
+        padding: 8px 15px;
+     }
+     .product-quantity input[type="number"] {
+        width: 60px;
+        padding: 8px;
+     }
+    .btn-add-to-cart {
+        padding: 10px 20px;
+    }
+    .breadcrumb-item {
+        font-size: 13px;
+    }
+    .breadcrumb-item + .breadcrumb-item::before {
+        padding: 0 5px;
+    }
+}
+
+.btn-add-to-cart[disabled]{
+  background-color: #bbb;
+  cursor: initial;
+  color: black;
+}

@@ -1,0 +1,24 @@
+.main-navbar {
+  background-color: #f4d71a;
+}
+
+.main-navbar img {
+  width: 3rem;
+}
+
+.main-navbar ul {
+  margin-left: auto;
+}
+
+.main-navbar ul {
+  margin-left: auto;
+}
+
+.main-navbar .nav-item {
+  font-weight: bold;
+}
+
+footer {
+  position: relative;
+  width: 90vw;
+}

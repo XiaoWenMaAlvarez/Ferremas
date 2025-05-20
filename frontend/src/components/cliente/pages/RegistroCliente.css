@@ -1,0 +1,135 @@
+
+/* Contenedor del Registro */
+.register-container { /* Cambiado de login-container si quieres estilos específicos */
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* Un poco más ancho para más campos */
+}
+
+.register-form h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select { /* Añadido select aquí */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #fff; /* Para asegurar que el select tenga fondo blanco */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group select:focus { /* Añadido select aquí */
+  border-color: #f4d71a; /* Borde con el color principal al enfocar */
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(244, 215, 26, 0.25);
+}
+
+/* Estilos específicos para el select para que se vea más como un input */
+.form-group select {
+  appearance: none; /* Quita la apariencia por defecto del navegador */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5z%22%20fill%3D%22%23555%22/%3E%3C/svg%3E'); /* Flecha personalizada */
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px; /* Espacio para la flecha */
+}
+
+
+.btn-register { /* Cambiado de btn-login */
+  background-color: #f4d71a;
+  color: #333;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+  background-color: #e0c417;
+}
+
+.form-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.form-links p {
+  font-size: 14px;
+  color: #555;
+}
+
+.form-links a {
+  color: #f4d71a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+/* Diseño Responsivo */
+@media (max-width: 600px) { /* Ajustado el breakpoint si es necesario */
+  .register-container {
+      padding: 25px;
+      margin-top: 20px; /* Espacio superior en móviles */
+      margin-bottom: 20px; /* Espacio inferior en móviles */
+  }
+
+  .register-form h1 {
+      font-size: 22px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group select,
+  .btn-register {
+      font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-container {
+      padding: 20px;
+  }
+}
+
+.form-select {
+  margin-bottom: 1rem;
+}
+
+body {
+  overflow-x: hidden;
+}

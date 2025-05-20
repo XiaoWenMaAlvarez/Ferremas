@@ -1,0 +1,27 @@
+.discount--container {
+  padding-inline: 2rem;
+  width: 100vw;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.discount--container  img{
+  width: 20rem;
+  margin-bottom: 3rem;
+}
+
+.discount--container  h1{
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  .discount--container  img{
+    width: 30rem;
+    margin-bottom: 3rem;
+  }
+}

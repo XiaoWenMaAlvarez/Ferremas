@@ -1,0 +1,397 @@
+/* Contenedor principal de la página de entrega */
+.contenedor-principal-entrega {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+    margin-top: 3rem;
+}
+
+.titulo-pagina-entrega h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+.titulo-pagina-entrega p {
+    text-align: center;
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.layout-entrega-resumen {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Layout principal: Opciones | Resumen */
+    gap: 30px;
+}
+
+/* Estilos para las opciones principales de entrega/retiro */
+.contenedor-opciones-entrega {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.opcion-entrega {
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Para el radio button custom */
+}
+
+.opcion-entrega:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+}
+
+.opcion-entrega.seleccionado {
+    border-color: #f4d71a;
+    box-shadow: 0 0 0 2px #f4d71a inset; /* Borde interno más sutil */
+}
+
+.opcion-entrega input[type="radio"] {
+    position: absolute;
+    opacity: 0; /* Oculta el radio button real */
+    width: 0;
+    height: 0;
+}
+
+.label-opcion-entrega {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.opcion-entrega-icono {
+    font-size: 2.5em;
+    color: #f4d71a;
+    width: 50px; /* Ancho fijo para el icono */
+    text-align: center;
+}
+
+.opcion-entrega-info h2 {
+    font-size: 1.3em;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.opcion-entrega-info p {
+    font-size: 0.95em;
+    color: #666;
+    margin: 0 0 8px 0;
+}
+
+.opcion-entrega-costo-estimado {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #f4d71a;
+}
+
+/* Estilo para el radio button custom */
+.radio-custom {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    position: relative;
+    margin-left: auto; /* Empuja el radio al final */
+}
+
+.opcion-entrega input[type="radio"]:checked + .label-opcion-entrega .radio-custom {
+    border-color: #f4d71a;
+}
+
+.opcion-entrega input[type="radio"]:checked + .label-opcion-entrega .radio-custom::after {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: #f4d71a;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Estilos para los detalles del método (formulario o lista de puntos) */
+.detalles-metodo-entrega {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-top: 20px;
+}
+
+.detalles-metodo-entrega h3 {
+    font-size: 1.4em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Formulario de dirección */
+.formulario-direccion .grupo-form {
+    margin-bottom: 18px;
+}
+
+.formulario-direccion label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #444;
+}
+
+.formulario-direccion input[type="text"],
+.formulario-direccion select,
+.formulario-direccion textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Importante para que el padding no aumente el ancho total */
+}
+.formulario-direccion textarea {
+    resize: vertical;
+}
+
+.formulario-direccion .grupo-form-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.tiempo-estimado-despacho {
+    font-size: 0.95em;
+    color: #555;
+    background-color: #e9f5ff;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid #007bff;
+    margin-top: 15px;
+}
+.tiempo-estimado-despacho i {
+    margin-right: 8px;
+    color: #f4d71a;
+}
+
+/* Sección de Puntos de Retiro */
+.buscador-puntos-retiro {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.buscador-puntos-retiro input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+.buscador-puntos-retiro button {
+    padding: 0 20px;
+    background-color: #f4d71a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.buscador-puntos-retiro button:hover {
+    background-color: #f4d71a;
+}
+
+.lista-puntos-retiro .punto-retiro-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    padding: 15px;
+    cursor: pointer;
+}
+.lista-puntos-retiro .punto-retiro-item:hover {
+    border-color: #f4d71a;
+}
+.lista-puntos-retiro .punto-retiro-item input[type="radio"] {
+    /* Ocultar si se desea, se maneja con el click en el label */
+    opacity: 0; width:0; height:0; position:absolute;
+}
+.lista-puntos-retiro .punto-retiro-item input[type="radio"]:checked + label {
+    border-left: 4px solid #f4d71a; /* Indicador de selección */
+    padding-left: 10px; /* Espacio para el borde */
+    background-color: #f8f9fa;
+}
+
+
+.lista-puntos-retiro .punto-retiro-item label {
+    display: block;
+    width: 100%;
+}
+
+.lista-puntos-retiro .punto-retiro-item h4 {
+    font-size: 1.1em;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+.lista-puntos-retiro .punto-retiro-item p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 3px 0;
+}
+.disponibilidad-retiro {
+    font-size: 0.85em;
+    color: #28a745; /* Verde */
+    display: block;
+    margin-top: 8px;
+}
+
+.mapa-placeholder {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: #777;
+}
+.mapa-placeholder i {
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+
+/* Resumen del Pedido (Lateral) */
+.resumen-pedido-entrega {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    height: fit-content; /* Para que no se estire innecesariamente */
+    position: sticky;
+    top: 20px; /* Para que se quede fijo al hacer scroll */
+}
+
+.resumen-pedido-entrega h3 {
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-resumen-entrega {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+.item-resumen-entrega img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.item-resumen-entrega .nombre-item-resumen {
+    flex-grow: 1;
+    color: #444;
+}
+.item-resumen-entrega .cantidad-item-resumen {
+    font-size: 0.85em;
+    color: #777;
+}
+.item-resumen-entrega .precio-item-resumen {
+    font-weight: bold;
+    color: #333;
+}
+
+.resumen-pedido-entrega hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.total-resumen-entrega p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+.total-resumen-entrega p span {
+    font-weight: bold;
+}
+.total-resumen-entrega h4 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3em;
+    color: #f4d71a;
+    margin-top: 10px;
+}
+.total-resumen-entrega h4 span {
+    font-weight: bold;
+}
+
+.btn-continuar-pago {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 20px;
+    background-color: #f4d71a;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-continuar-pago:hover {
+    background-color: #ffea00;
+} 
+
+/* Estilos del header y footer (asumiendo que vienen de estilos.css) */
+/* Si necesitas algo específico para el header de esta página: */
+.paso-checkout {
+    font-size: 1.1em;
+    color: #555;
+    font-weight: bold;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+    .layout-entrega-resumen {
+        grid-template-columns: 1fr; /* Apila las columnas */
+    }
+    .resumen-pedido-entrega {
+        position: static; /* Quita el sticky */
+        margin-top: 30px;
+    }
+    .formulario-direccion .grupo-form-doble {
+        grid-template-columns: 1fr; /* Apila los campos dobles */
+    }
+}
+
+@media (max-width: 768px) {
+    .titulo-pagina-entrega h1 {
+        font-size: 1.6em;
+    }
+    .label-opcion-entrega {
+        flex-direction: column; /* Apila icono e info en móviles */
+        align-items: flex-start; /* Alinea al inicio */
+        text-align: left;
+    }
+    .radio-custom {
+        position: absolute; /* Lo posiciona relativo al .opcion-entrega */
+        top: 20px;
+        right: 20px;
+    }
+    .opcion-entrega-icono {
+        margin-bottom: 10px;
+        text-align: left;
+    }
+}
