@@ -1,0 +1,19 @@
+Instrucciones
+
+Paso 1: Ir a la carpeta Ferremas/backend en la terminal
+
+Paso 2: Ejecutar el comando 'python -m venv venv'
+
+Paso 3: Ejecutar 'cd venv/Scripts'
+
+Paso 4: Ejecutar 'activate'
+
+Paso 5: Ejecutar 'cd..'
+
+Paso 6: Ejecutar 'cd..'
+
+Paso 7: Ejecutar 'pip install -r requirements.txt'
+
+Paso 8: Ejecutar 'cd app'
+
+Paso 9: Ejecutar 'uvicorn main:api --reload'
