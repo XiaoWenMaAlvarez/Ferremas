@@ -357,3 +357,48 @@ async def devolver_descuento_anterior_si_tenia(
   return {
     "mensaje": f"Actualización exitosa del usuario con id {id}"
   }
+
+class EmailRequest(BaseModel):
+    email: EmailStr
+
+
+@cliente_router.post("/enviar_correo_recuperacion")
+async def enviar_correo_recuperacion(data: EmailRequest, session: AsyncSession = Depends(get_session)):
+  email = data.email
+  query_results = await session.execute(text("SELECT * FROM cliente WHERE correo_electronico = :email;"), {"email": email})
+  resultado = query_results.mappings().first()
+  if resultado is None:
+    raise HTTPException(status_code=404, detail="Cliente no encontrado.")
+  cliente = {
+    "id_cliente": resultado["id_cliente"],
+    "nombre_completo": resultado["nombre_completo"],
+    "correo_electronico": resultado["correo_electronico"],
+  }
+  
+  
+  try:
+        subject = "Recuperación de contraseña para Ferremas"
+        body = f"""
+Hola {cliente['nombre_completo']},
+
+Hemos recibido una solicitud de restablecimiento de contraseña
+
+Para restablecer tu contraseña, solo haz clic en el siguiente enlace:
+
+{f"http://localhost:5173/restablecer_pass/{cliente['id_cliente']}"}
+
+"""
+        msg = MIMEText(body)
+        msg["Subject"] = subject
+        msg["From"] = EMAIL_USER
+        msg["To"] = cliente["correo_electronico"]
+
+        # Enviar usando SMTP de Gmail
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login(EMAIL_USER, EMAIL_PASSWORD)
+            smtp.send_message(msg)
+
+        return {"mensaje": "Correo enviado correctamente"}
+
+  except Exception as e:
+    raise HTTPException(status_code=500, detail=f"Error al enviar correo: {str(e)}")
