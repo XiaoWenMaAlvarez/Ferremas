@@ -62,6 +62,9 @@ const LoginCliente = () => {
           <div class="register-link">
             <p>¿No tienes una cuenta? <Link to="/registro_cliente">Regístrate aquí</Link></p>
         </div>
+        <div class="register-link">
+            <p><Link to="/olvide-pass">¿Olvidó la contraseña?</Link></p>
+        </div>
         </div>
     </main>
   )

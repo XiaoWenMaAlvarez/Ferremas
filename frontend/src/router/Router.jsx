@@ -50,6 +50,9 @@ import ListaCategorias from "../components/invitado/pages/ListaCategorias";
 import ListaMarcas from "../components/invitado/pages/ListaMarcas";
 import ListaProductosPorCategoria from "../components/invitado/pages/ListaProductosPorCategoria";
 import ListaProductosPorMarca from "../components/invitado/pages/ListaProductosPorMarca";
+import Intranet from "../components/invitado/pages/Intranet";
+import OlvidePass from "../components/cliente/pages/OlvidePass";
+import RestablecerPass from "../components/cliente/pages/RestablecerPass";
 
 const router = createBrowserRouter([
 
@@ -94,7 +97,11 @@ const router = createBrowserRouter([
       {
         path: "productos_por_marca/:id",
         element: <ListaProductosPorMarca modo="invitado"></ListaProductosPorMarca>
-      }
+      },
+      {
+        path: "intranet",
+        element: <Intranet></Intranet>,
+      },
     ]
   },
   // ADMINISTRADOR
@@ -304,6 +311,14 @@ const router = createBrowserRouter([
   {
     path: "/registro_cliente",
     element: <RegistroCliente/>,
+  },
+  {
+    path: "/olvide-pass",
+    element: <OlvidePass/>
+  },
+  {
+    path: "/restablecer_pass/:id",
+    element: <RestablecerPass/>
   },
 
   {
