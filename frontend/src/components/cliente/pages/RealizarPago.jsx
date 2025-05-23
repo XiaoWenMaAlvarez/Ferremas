@@ -206,7 +206,7 @@ const RealizarPago = () => {
         )
     }
 
-    if(!carrito || !valorDolar){
+    if(!carrito || valorDolar==0){
         return(
             <Loader></Loader>
         )
@@ -306,6 +306,11 @@ const RealizarPago = () => {
                 <div className="total-final-pago">
                     <h4>Total a pagar:</h4>
                     <h4 id="total-pagar-resumen">${(carrito.id_tipo_entrega == 1? carrito.subtotal + 2500 : carrito.subtotal).toLocaleString('de-DE')}</h4>
+                </div>
+
+                <div className="total-final-pago">
+                    <h4>Total a pagar (en USD):</h4>
+                    <h4 id="total-pagar-resumen">${(carrito.id_tipo_entrega == 1? ((carrito.subtotal + 2500) / valorDolar).toFixed(2) : (carrito.subtotal/valorDolar).toFixed(2)).toLocaleString('de-DE')}</h4>
                 </div>
                 
             </aside>

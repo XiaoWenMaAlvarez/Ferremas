@@ -25,6 +25,14 @@ const SeleccionarEntrega = () => {
 
     const [regionSeleccionada, setRegionSeleccionada] = useState("1")
 
+    const [valorDolar, setValorDolar] = useState(0)
+
+    useEffect(() => {
+        axios.get(`https://mindicador.cl/api`).then((miIndicador) => {
+            setValorDolar(miIndicador.data.dolar.valor) 
+        })
+    }, [])
+
     useEffect(() => {
         getCarrito().then( async (carrito) => {
             setProductos(carrito.productos)
@@ -162,7 +170,7 @@ const SeleccionarEntrega = () => {
         )
     }
 
-    if(!comunas || !regiones || !tiendas || !productos || !direccionCompleta){
+    if(!comunas || !regiones || !tiendas || !productos || !direccionCompleta || valorDolar==0){
         return(
             <Loader></Loader>
         )
@@ -264,6 +272,7 @@ const SeleccionarEntrega = () => {
                     <p>Subtotal: <span>${subtotal.toLocaleString('de-DE')}</span></p>
                     <p>Envío: <span id="costo-envio-resumen">${opcionElegida == 1 ? "2.500" : "0"}</span></p>
                     <h4>Total: <span id="total-pedido-resumen">${opcionElegida == 1 ? (subtotal + 2500).toLocaleString('de-DE') : subtotal.toLocaleString('de-DE')}</span></h4>
+                    <h4>Total (en USD): <span id="total-pedido-resumen">${opcionElegida == 1 ? ((subtotal + 2500) / valorDolar).toFixed(2).toLocaleString('de-DE') : (subtotal/ valorDolar).toFixed(2).toLocaleString('de-DE')}</span></h4>
                 </div>
                   <button type="button" className="btn-primario btn-continuar-pago" onClick={validarFormulario}>Continuar al Pago</button>
 

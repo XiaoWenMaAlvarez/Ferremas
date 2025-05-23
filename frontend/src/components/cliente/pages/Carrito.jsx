@@ -32,6 +32,14 @@ const Carrito = () => {
 
     const [descuento, setDescuento] = useState(0)
 
+    const [valorDolar, setValorDolar] = useState(0)
+
+    useEffect(() => {
+        axios.get(`https://mindicador.cl/api`).then((miIndicador) => {
+            setValorDolar(miIndicador.data.dolar.valor) 
+        })
+    }, [])
+
     useEffect(() => {
         verificarDescuento().then(() => {
             getCarrito().then((carrito) => {
@@ -147,7 +155,7 @@ const Carrito = () => {
         )
     }
 
-    if(!productos || descuento == null || descuento == undefined) {
+    if(!productos || descuento == null || descuento == undefined || valorDolar==0) {
         return (
             <Loader></Loader>
         )
@@ -215,6 +223,10 @@ const Carrito = () => {
                 <div className="resumen-linea total-compra">
                     <span>Total:</span>
                     <span>${(subtotal - Math.ceil( descuento / 100 * subtotal)).toLocaleString('de-DE')}</span>
+                </div>
+                <div className="resumen-linea total-compra">
+                    <span>Total (en USD):</span>
+                    <span>${((subtotal - Math.ceil( descuento / 100 * subtotal)) / valorDolar).toFixed(2).toLocaleString('de-DE')}</span>
                 </div>
 
                 <button type="button" className="btn-primario btn-continuar-compra" onClick={continuarCompra}>Continuar compra</button>
