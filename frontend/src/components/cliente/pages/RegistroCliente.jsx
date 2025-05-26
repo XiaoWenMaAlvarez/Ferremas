@@ -213,7 +213,7 @@ const RegistroCliente = () => {
           </div> : <></>
           }
           <div class="register-link">
-            <p>¿¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link></p>
+            <p>¿¿Ya tienes una cuenta? <Link to="/login-cliente">Inicia sesión</Link></p>
         </div>
         </div>
     </main>
