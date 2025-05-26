@@ -136,6 +136,10 @@ const DetallePedidoPorPagar = () => {
         .then(async () => {
             await axios.patch(`${USER_API_URL}/cliente/devolver_descuento_si_tenia/${venta.id_cliente}`)
             setTituloModal("Pago rechazado")
+            const response = await axios.get(`${USER_API_URL}/detalle_venta/por_venta/${venta.id_venta}`)
+            for(let detalleVenta of response.data){
+                await axios.patch(`${USER_API_URL}/producto/restar_stock/${detalleVenta.id_producto}?cantidad_a_restar=${detalleVenta.cantidad * -1}`)
+            }
             navigation("/contador/pagos_por_confirmar")
         })
         .catch(() => {

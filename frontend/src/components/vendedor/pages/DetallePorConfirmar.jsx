@@ -147,6 +147,11 @@ function formatearFecha(fecha) {
             "id_vendedor": await obtenerIdUsuario("vendedor"),
         }
         axios.patch(`${USER_API_URL}/venta/${venta.id_venta}`, data)
+        axios.get(`${USER_API_URL}/detalle_venta/por_venta/${venta.id_venta}`).then(async (response) => {
+            for(let detalleVenta of response.data){
+                await axios.patch(`${USER_API_URL}/producto/restar_stock/${detalleVenta.id_producto}?cantidad_a_restar=${detalleVenta.cantidad * -1}`)
+            }
+        })
         .then(() => {
             mostrarModal("Venta rechazada")
         })
